@@ -1,0 +1,1 @@
+# prroperty_app_with_django
