@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+   {% block content %}
+     <h1>{{ post.title }}</h1>
+     <p class="date">
+       Published {{ post.publish }} by {{ post.author }}
+     </p><br>
+     <img src="/media/{{ post.property_pic }}" class="property_img">
+     {{ post.body|linebreaks }}
+     <p>{{ post.address }} {{ post.city }} {{ post.postcode }}</p>
+     <p>This property have {{ post.number_of_beds }} beds and {{ post.number_of_baths }} baths</p>
+     <p>Price of this property is {{ post.price }}£</p>
+   {% endblock %}

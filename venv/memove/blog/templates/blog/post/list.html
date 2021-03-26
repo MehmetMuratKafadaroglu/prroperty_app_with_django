@@ -1,0 +1,37 @@
+{% extends "blog/base.html" %}
+{% block title %}Memove{% endblock %}
+
+   {% block content %}
+    {% if request.user.is_authenticated %}
+      <a href='../register/logout'><button class="button">Log out</button></a>
+    {% else %}
+      <a href='../login'><button class="button">Log in</button></a>
+    {% endif %}
+     
+    <a href='../new'><button class="button">Sell your property!</button></a>
+  
+   {% include "pagination.html" with page=page_obj %}
+     <h1>Memove</h1>
+     {% for post in posts %}
+
+     <div class = "postClass">
+      <div class="prop_img">
+        <img src="/media/{{ post.property_pic }}" class="property_img">
+       </div>
+ 
+
+     <div class="prop_desc">
+        <h4>
+         <a href="{{ post.get_absolute_url }}">
+          {{ post.number_of_beds }} beds {{ post.property_type }} in {{ post.city }} for {{post.price}}£
+          </a>
+       </h4>
+       <p>{{ post.body|truncatewords:50 }}
+      </p>
+      </div>
+      <div class = "v-space"> </div>
+     {% endfor %}
+    </div>
+    
+   {% endblock %}
+
