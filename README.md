@@ -1,1 +1,3 @@
-# prroperty_app_with_django
+git add -A
+git commit
+git push
